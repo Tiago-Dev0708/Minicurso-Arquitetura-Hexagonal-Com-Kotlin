@@ -68,21 +68,7 @@ O Swagger UI poderá ser acessado em: `http://localhost:8080/swagger-ui.html`
 
 Este repositório foi construído utilizando **Commits Semânticos** granulares. Para entender a evolução do projeto e como cada peça da arquitetura foi encaixada, recomendamos que você explore o histórico do Git.
 
-Cada commit representa um passo lógico na construção:
-1. `chore`: Setup inicial do projeto e Gradle.
-2. `feat`: Infraestrutura Docker e propriedades.
-3. `feat(domain/model)`: Definição das entidades puras.
-4. `feat(domain/repository)`: Portas de saída (interfaces).
-5. `feat(domain/service)`: Portas de entrada (interfaces).
-6. `feat(application/usecase)`: Lógica de negócio (implementação).
-7. `feat(infra/persistence)`: Repositórios JPA.
-8. `feat(infra/persistence)`: Adaptadores de persistência.
-9. `feat(presentation/dto)`: Objetos de transferência de dados.
-10. `feat(presentation/mapper)`: Mapas de conversão (DTO <-> Domínio).
-11. `feat(presentation/security)`: JWT e Filtros de segurança.
-12. `feat(presentation/web)`: Controllers e Exceções.
-13. `feat(infra/config)`: Configurações de segurança e Spring.
-14. `feat`: Classe principal e bootstrap.
+Cada commit representa um passo lógico na construção, analisem com cuidado e façam o mapeamento de cada um deles.
 
 ---
 
