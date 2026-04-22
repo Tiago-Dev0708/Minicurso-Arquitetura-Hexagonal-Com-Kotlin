@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+
+package "Infra (Entrada)" {
+    [Security / JWT]
+    [REST Controllers]
+}
+
+package "Aplicação" {
+    [Use Cases]
+}
+
+package "Domínio" {
+    [Portas de Entrada]
+    [Entidades]
+    [Portas de Saída]
+}
+
+package "Infra (Saída)" {
+    [JPA Adapter]
+}
+
+[Security / JWT] --> [REST Controllers]
+[REST Controllers] --> [Portas de Entrada] : 1. Chama Interface
+[Portas de Entrada] --> [Use Cases] : 2. Implementado por
+[Use Cases] --> [Entidades] : 3. Manipula
+[Use Cases] --> [Portas de Saída] : 4. Persiste via
+[Portas de Saída] --> [JPA Adapter] : 5. Implementado por
+
+@enduml
