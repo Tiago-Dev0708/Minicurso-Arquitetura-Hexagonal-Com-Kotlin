@@ -1,0 +1,49 @@
+services:
+    postgres:
+        image: postgres:16
+        restart: always
+        ports:
+            - "5434:5432"
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: biblioteca_db
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        networks:
+            - app-net
+    
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: pgadmin
+        ports:
+            - "8888:80"
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: admin
+        depends_on:
+            - postgres
+        networks:
+            - app-net
+
+    kotlin-api:
+        build:
+            context: .
+        container_name: kotlin_backend
+        ports:
+            - "8080:8080"
+        depends_on:
+            - postgres
+        networks:
+            - app-net
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/biblioteca_db
+            - SPRING_DATASOURCE_USERNAME=postgres
+            - SPRING_DATASOURCE_PASSWORD=postgres
+
+volumes:
+  postgres_data:
+
+networks:
+    app-net:
+        driver: bridge
