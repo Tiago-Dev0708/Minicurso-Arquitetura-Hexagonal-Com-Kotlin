@@ -27,7 +27,7 @@ Neste projeto pessoal/didático, as variáveis de ambiente já estão configurad
 > Para "devs novos", as variáveis foram mantidas no `docker-compose.yml` para facilitar a vida: basta baixar o projeto e rodar. Em ambientes produtivos, estas variáveis seriam setadas via **Secrets** ou **Environment Variables** do sistema.
 
 As principais variáveis são:
-- `SPRING_DATASOURCE_URL`: URL de conexão com o Postgres.
+- `SPRING_DATASOURCE_URL`: URL de conexão com o Banco Postgres.
 - `SPRING_DATASOURCE_USERNAME`: Usuário do banco (padrão: `postgres`).
 - `SPRING_DATASOURCE_PASSWORD`: Senha do banco (padrão: `postgres`).
 
